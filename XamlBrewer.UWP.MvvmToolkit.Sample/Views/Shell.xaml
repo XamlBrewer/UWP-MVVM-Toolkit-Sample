@@ -30,10 +30,11 @@
                               Header="Microsoft MVVM Toolkit Sample"
                               IsBackButtonVisible="Collapsed"
                               Background="Transparent"
+                              IsSettingsVisible="False"
                               SelectionChanged="NavigationView_SelectionChanged">
             <winui:NavigationView.MenuItems>
                 <winui:NavigationViewItem Content="Building Blocks"
-                                          Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.FirstPage">
+                                          Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.BuildingBlocksPage">
                     <winui:NavigationViewItem.Icon>
                         <BitmapIcon UriSource="/Assets/buildingblocks.png"
                                     ShowAsMonochrome="False" />

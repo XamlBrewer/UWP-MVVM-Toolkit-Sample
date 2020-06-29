@@ -123,10 +123,10 @@
     <Compile Include="Services\IDataProvider.cs" />
     <Compile Include="Services\BlueDataProvider.cs" />
     <Compile Include="Services\RedDataProvider.cs" />
-    <Compile Include="ViewModels\FirstPageViewModel.cs" />
+    <Compile Include="ViewModels\BuildingBlocksPageViewModel.cs" />
     <Compile Include="ViewModels\MyViewModelBase.cs" />
-    <Compile Include="Views\FirstPage.xaml.cs">
-      <DependentUpon>FirstPage.xaml</DependentUpon>
+    <Compile Include="Views\BuildingBlocksPage.xaml.cs">
+      <DependentUpon>BuildingBlocksPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
@@ -155,7 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\FirstPage.xaml">
+    <Page Include="Views\BuildingBlocksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

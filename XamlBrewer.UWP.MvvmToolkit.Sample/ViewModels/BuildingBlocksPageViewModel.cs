@@ -7,12 +7,12 @@ using XamlBrewer.UWP.MvvmToolkit.Sample.Services;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 {
-    public class FirstPageViewModel : MyViewModelBase
+    public class BuildingBlocksPageViewModel : MyViewModelBase
     {
         private SuperHero _superHero;
         private IDataProvider _dataProvider;
 
-        public FirstPageViewModel()
+        public BuildingBlocksPageViewModel()
         {
             _dataProvider = new RedDataProvider();
             _superHero = _dataProvider.SuperHero();

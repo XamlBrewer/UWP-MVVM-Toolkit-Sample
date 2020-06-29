@@ -1,4 +1,4 @@
-﻿<Page x:Class="XamlBrewer.UWP.MvvmToolkit.Sample.Views.FirstPage"
+﻿<Page x:Class="XamlBrewer.UWP.MvvmToolkit.Sample.Views.BuildingBlocksPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:viewModels="using:XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels"
@@ -8,7 +8,7 @@
       mc:Ignorable="d"
       Background="Transparent">
     <Page.DataContext>
-        <viewModels:FirstPageViewModel x:Name="ViewModel" />
+        <viewModels:BuildingBlocksPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
     <Grid>
         <StackPanel>
