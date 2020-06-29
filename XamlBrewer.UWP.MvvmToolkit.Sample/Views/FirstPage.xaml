@@ -1,0 +1,34 @@
+﻿<Page x:Class="XamlBrewer.UWP.MvvmToolkit.Sample.Views.FirstPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:viewModels="using:XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels"
+      xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="Transparent">
+    <Page.DataContext>
+        <viewModels:FirstPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="16"
+                       Margin="0 0 0 8">Observable</TextBlock>
+            <TextBlock><Run Text="Name: " /><Run Text="{x:Bind ViewModel.SuperHero.Name, Mode=OneWay}" /></TextBlock>
+            <TextBlock><Run Text="Nemesis: " /><Run Text="{x:Bind ViewModel.SuperHero.Nemesis, Mode=OneWay}" /></TextBlock>
+            <TextBlock><Run Text="Data Provider: " /><Run Text="{x:Bind ViewModel.DataProvider.Description, Mode=OneWay}" /></TextBlock>
+            <TextBlock FontSize="16"
+                       Margin="0 24 0 8">RelayCommand</TextBlock>
+            <Button Command="{x:Bind ViewModel.SwitchDataProviderCommand}"
+                    Width="{Binding ElementName=AsyncButton, Path=ActualWidth}">Switch DataProvider Sync</Button>
+            <Button x:Name="AsyncButton"
+                    Command="{x:Bind ViewModel.SwitchDataProviderAsyncCommand}"
+                    Margin="0 6">Switch DataProvider Async</Button>
+        </StackPanel>
+        <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
+                            Background="Transparent"
+                            IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}"
+                            Height="200"
+                            Width="200" />
+    </Grid>
+</Page>
