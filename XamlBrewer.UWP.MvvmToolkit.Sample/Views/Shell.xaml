@@ -5,9 +5,14 @@
       xmlns:winui="using:Microsoft.UI.Xaml.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:viewModels="using:XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <viewModels:ShellViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+    
     <Grid Background="Transparent">
         <Grid.Resources>
             <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
@@ -37,6 +42,13 @@
                                           Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.BuildingBlocksPage">
                     <winui:NavigationViewItem.Icon>
                         <BitmapIcon UriSource="/Assets/buildingblocks.png"
+                                    ShowAsMonochrome="False" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="Messenger"
+                                          Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.MessengerPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/messenger.png"
                                     ShowAsMonochrome="False" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
