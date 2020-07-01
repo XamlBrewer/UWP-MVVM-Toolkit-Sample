@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Windows.UI;
+﻿using Windows.UI;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
@@ -15,7 +14,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             // 'ThemeAwareViewModel'
             _theme = Messenger.Send(new ThemeRequestMessage(), t);
-            Debug.WriteLine($"MemoryLeakingModule requested thema and received {_theme.Name}.");
+            LoggingService.Log($"MemoryLeakingModule requested thema and received {_theme.Name}.");
             if (_theme.Name == "Red")
             {
                 Color = Colors.Red;
@@ -27,7 +26,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             Messenger.Register<ThemeChangedMessage, int>(this, t, m =>
             {
-                Debug.WriteLine($"MemoryLeakingModule received change to {m.Value.Name}.");
+                LoggingService.Log($"MemoryLeakingModule received change to {m.Value.Name}.");
 
                 if (m.Value.Name == "Red")
                 {

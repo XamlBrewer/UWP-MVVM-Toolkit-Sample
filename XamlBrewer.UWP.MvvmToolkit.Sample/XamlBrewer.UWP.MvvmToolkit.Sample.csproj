@@ -123,6 +123,8 @@
     <Compile Include="Models\Theme.cs" />
     <Compile Include="Services\IDataProvider.cs" />
     <Compile Include="Services\BlueDataProvider.cs" />
+    <Compile Include="Services\Logging\DebugLoggingService.cs" />
+    <Compile Include="Services\Logging\ILoggingService.cs" />
     <Compile Include="Services\Messenger\Messages\ThemeChangedMessage.cs" />
     <Compile Include="Services\Messenger\Messages\ThemeRequestMessage.cs" />
     <Compile Include="Services\RedDataProvider.cs" />
@@ -133,6 +135,9 @@
     <Compile Include="ViewModels\MyViewModelBase.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ThemeModuleViewModel.cs" />
+    <Compile Include="Views\InversionOfControlPage.xaml.cs">
+      <DependentUpon>InversionOfControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BuildingBlocksPage.xaml.cs">
       <DependentUpon>BuildingBlocksPage.xaml</DependentUpon>
     </Compile>
@@ -154,6 +159,7 @@
     <Content Include="Assets\Biohazard.png" />
     <Content Include="Assets\BuildingBlocks.png" />
     <Content Include="Assets\DoctorWho.png" />
+    <Content Include="Assets\Injection.png" />
     <Content Include="Assets\InspectorSpacetime.jpg" />
     <Content Include="Assets\Messenger.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -170,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\InversionOfControlPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BuildingBlocksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

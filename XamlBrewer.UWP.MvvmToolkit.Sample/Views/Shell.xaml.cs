@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using System;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Logging;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample
@@ -22,6 +26,9 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample
                 titleBar.ButtonInactiveBackgroundColor = Colors.SlateGray;
                 titleBar.ButtonForegroundColor = (Color)Resources["SystemAccentColor"];
             }
+
+            Ioc.Default.ConfigureServices
+                (s => s.AddSingleton<ILoggingService, DebugLoggingService>());
 
             this.InitializeComponent();
         }

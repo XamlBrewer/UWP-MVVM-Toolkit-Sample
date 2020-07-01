@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
+﻿using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
@@ -14,7 +13,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             // 'ThemeAwareViewModel'
             _theme = Messenger.Send(new ThemeRequestMessage(), t);
-            Debug.WriteLine($"ThemeModule requested thema and received {_theme.Name}.");
+            LoggingService.Log($"ThemeModule requested thema and received {_theme.Name}.");
             _isDefaultTheme = _theme.Name == Theme.Default.Name;
             if (!_isDefaultTheme)
             {
@@ -49,7 +48,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             if (broadcast)
             {
-                Debug.WriteLine($"ThemeModule requested thema change to {_theme.Name}.");
+                LoggingService.Log($"ThemeModule requested thema change to {_theme.Name}.");
                 Messenger.Send(new ThemeChangedMessage(_theme), t);
             }
         }

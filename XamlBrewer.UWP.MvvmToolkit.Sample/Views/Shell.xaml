@@ -52,6 +52,13 @@
                                     ShowAsMonochrome="False" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="Dependency Injection"
+                                          Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.InversionOfControlPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/injection.png"
+                                    ShowAsMonochrome="False" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
             </winui:NavigationView.MenuItems>
             <Frame x:Name="ContentFrame"
                    Padding="16 0">
