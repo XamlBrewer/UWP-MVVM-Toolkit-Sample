@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.Input;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;

@@ -9,7 +9,5 @@
         public static Theme Default => Theme.Red;
 
         public string Name { get; set; }
-
-        // public string Picture { get; set; }
     }
 }

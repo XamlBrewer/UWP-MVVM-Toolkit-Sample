@@ -12,22 +12,22 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
 
         private void ColorModule_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewModel2.IsActive = true;
+            ColorModuleViewModel.IsActive = true;
         }
 
         private void ColorModule_Unloaded(object sender, RoutedEventArgs e)
         {
-            ViewModel2.IsActive = false;
+            ColorModuleViewModel.IsActive = false;
         }
 
         private void PictureModule_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewModel4.IsActive = true;
+            PictureModuleViewModel.IsActive = true;
         }
 
         private void PictureModule_Unloaded(object sender, RoutedEventArgs e)
         {
-            ViewModel4.IsActive = false;
+            PictureModuleViewModel.IsActive = false;
         }
     }
 }

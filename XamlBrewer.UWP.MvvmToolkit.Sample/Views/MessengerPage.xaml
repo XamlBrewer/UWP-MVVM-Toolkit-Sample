@@ -17,7 +17,7 @@
             <Grid x:Name="ThemeModule"
                   Padding="0 0 20 20">
                 <Grid.DataContext>
-                    <viewModels:ThemeModuleViewModel x:Name="ViewModel" />
+                    <viewModels:ThemeModuleViewModel x:Name="ThemeModuleViewModel" />
                 </Grid.DataContext>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -57,7 +57,7 @@
                 <ToggleSwitch Header="Theme"
                               OnContent="Red"
                               OffContent="Blue"
-                              IsOn="{x:Bind ViewModel.IsDefaultTheme, Mode=TwoWay}"
+                              IsOn="{x:Bind ThemeModuleViewModel.IsDefaultTheme, Mode=TwoWay}"
                               Grid.Row="1"
                               VerticalAlignment="Bottom"
                               Margin="20" />
@@ -69,7 +69,7 @@
                   Unloaded="ColorModule_Unloaded"
                   Padding="0 0 20 20">
                 <Grid.DataContext>
-                    <viewModels:ColorModuleViewModel x:Name="ViewModel2" />
+                    <viewModels:ColorModuleViewModel x:Name="ColorModuleViewModel" />
                 </Grid.DataContext>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -107,7 +107,7 @@
                         Grid.Column="1"
                         Margin="20">
                     <Border.Background>
-                        <SolidColorBrush Color="{x:Bind ViewModel2.Color, Mode=OneWay}" />
+                        <SolidColorBrush Color="{x:Bind ColorModuleViewModel.Color, Mode=OneWay}" />
                     </Border.Background>
                 </Border>
             </Grid>
@@ -118,7 +118,7 @@
                   HorizontalAlignment="Stretch"
                   Padding="0 0 20 20">
                 <Grid.DataContext>
-                    <viewModels:PictureModuleViewModel x:Name="ViewModel4" />
+                    <viewModels:PictureModuleViewModel x:Name="PictureModuleViewModel" />
                 </Grid.DataContext>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -156,7 +156,7 @@
                         Grid.RowSpan="2"
                         Grid.Column="1"
                         HorizontalAlignment="Right">
-                    <Image Source="{x:Bind ViewModel4.Image, Mode=OneWay}" />
+                    <Image Source="{x:Bind PictureModuleViewModel.Image, Mode=OneWay}" />
                 </Border>
             </Grid>
             <Grid x:Name="MemoryLeakingModule"
