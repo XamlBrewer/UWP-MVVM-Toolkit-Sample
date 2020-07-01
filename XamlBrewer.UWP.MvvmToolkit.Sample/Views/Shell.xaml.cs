@@ -7,6 +7,7 @@ using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Logging;
+using XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample
@@ -28,7 +29,11 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample
             }
 
             Ioc.Default.ConfigureServices
-                (s => s.AddSingleton<ILoggingService, DebugLoggingService>());
+                (services =>
+                {
+                    services.AddSingleton<ILoggingService, DebugLoggingService>();
+                    services.AddSingleton<ColorModuleViewModel>();
+                });
 
             this.InitializeComponent();
         }

@@ -68,9 +68,9 @@
                   Loaded="ColorModule_Loaded"
                   Unloaded="ColorModule_Unloaded"
                   Padding="0 0 20 20">
-                <Grid.DataContext>
+                <!--<Grid.DataContext>
                     <viewModels:ColorModuleViewModel x:Name="ColorModuleViewModel" />
-                </Grid.DataContext>
+                </Grid.DataContext>-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />

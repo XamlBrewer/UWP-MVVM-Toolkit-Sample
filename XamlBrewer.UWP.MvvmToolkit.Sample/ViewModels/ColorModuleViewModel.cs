@@ -12,13 +12,15 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         private Color _color;
         private int t;
         private Theme _theme;
-        private ILoggingService loggingService = Ioc.Default.GetService<ILoggingService>();
+        private ILoggingService _loggingService; // = Ioc.Default.GetService<ILoggingService>();
 
-        public ColorModuleViewModel()
+        public ColorModuleViewModel(ILoggingService loggingService)
         {
+            _loggingService = loggingService;
+
             // 'ThemeAwareViewModel'
             _theme = Messenger.Send(new ThemeRequestMessage(), t);
-            loggingService.Log($"ColorModule requested thema and received {_theme.Name}.");
+            _loggingService.Log($"ColorModule requested thema and received {_theme.Name}.");
             if (_theme.Name == "Red")
             {
                 Color = Colors.Red;
@@ -41,7 +43,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             Messenger.Register<ThemeChangedMessage, int>(this, t, m =>
             {
-                loggingService.Log($"ColorModule received change to {m.Value.Name}.");
+                _loggingService.Log($"ColorModule received change to {m.Value.Name}.");
 
                 if (m.Value.Name == "Red")
                 {
