@@ -4,7 +4,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Services
 {
     public class RedDataProvider : IDataProvider
     {
-        public string Description => "Red Phonebox Data Provider";
+        public string Description => "Red Phonebox";
+
         public SuperHero SuperHero()
         {
             return new SuperHero

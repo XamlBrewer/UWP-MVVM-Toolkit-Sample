@@ -11,20 +11,75 @@
         <viewModels:BuildingBlocksPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
     <Grid>
-        <StackPanel>
-            <TextBlock FontSize="16"
-                       Margin="0 0 0 8">Observable</TextBlock>
-            <TextBlock><Run Text="Name: " /><Run Text="{x:Bind ViewModel.SuperHero.Name, Mode=OneWay}" /></TextBlock>
-            <TextBlock><Run Text="Nemesis: " /><Run Text="{x:Bind ViewModel.SuperHero.Nemesis, Mode=OneWay}" /></TextBlock>
-            <TextBlock><Run Text="Data Provider: " /><Run Text="{x:Bind ViewModel.DataProvider.Description, Mode=OneWay}" /></TextBlock>
-            <TextBlock FontSize="16"
-                       Margin="0 24 0 8">RelayCommand</TextBlock>
-            <Button Command="{x:Bind ViewModel.SwitchDataProviderCommand}"
-                    Width="{Binding ElementName=AsyncButton, Path=ActualWidth}">Switch DataProvider Sync</Button>
-            <Button x:Name="AsyncButton"
-                    Command="{x:Bind ViewModel.SwitchDataProviderAsyncCommand}"
-                    Margin="0 6">Switch DataProvider Async</Button>
-        </StackPanel>
+        <VariableSizedWrapGrid Orientation="Horizontal"
+                               ItemWidth="300"
+                               ItemHeight="200">
+            <Grid Padding="0 0 20 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border CornerRadius="4"
+                        Grid.RowSpan="2">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".1" />
+                    </Border.Background>
+                </Border>
+
+                <Border CornerRadius="4"
+                        Height="30">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".2" />
+                    </Border.Background>
+                    <TextBlock VerticalAlignment="Center"
+                               Padding="20 4">Observable</TextBlock>
+                </Border>
+                <StackPanel VerticalAlignment="Top"
+                            Padding="20"
+                            Grid.Row="1">
+                    <TextBlock><Run Text="Name: " /><Run Text="{x:Bind ViewModel.SuperHero.Name, Mode=OneWay}" /></TextBlock>
+                    <TextBlock><Run Text="Nemesis: " /><Run Text="{x:Bind ViewModel.SuperHero.Nemesis, Mode=OneWay}" /></TextBlock>
+                    <TextBlock Margin="0 4 0 0"><Run Text="Data Provider: " /><Run Text="{x:Bind ViewModel.DataProvider.Description, Mode=OneWay}" /></TextBlock>
+                    <Button Click="Button_Click"
+                            HorizontalAlignment="Stretch"
+                            Margin="0 12">Update Nemesis</Button>
+                </StackPanel>
+            </Grid>
+            <Grid Padding="0 0 20 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border CornerRadius="4"
+                        Grid.RowSpan="2">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".1" />
+                    </Border.Background>
+                </Border>
+
+                <Border CornerRadius="4"
+                        Height="30">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".2" />
+                    </Border.Background>
+                    <TextBlock VerticalAlignment="Center"
+                               Padding="20 4">RelayCommand</TextBlock>
+                </Border>
+                <StackPanel VerticalAlignment="Top"
+                            Padding="20"
+                            Grid.Row="1">
+                    <Button Command="{x:Bind ViewModel.SwitchDataProviderCommand}"
+                            HorizontalAlignment="Stretch">Switch DataProvider Sync</Button>
+                    <Button Command="{x:Bind ViewModel.SwitchDataProviderAsyncCommand}"
+                            HorizontalAlignment="Stretch"
+                            Margin="0 8">Switch DataProvider Async</Button>
+                </StackPanel>
+            </Grid>
+        </VariableSizedWrapGrid>
         <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
                             Background="Transparent"
                             IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}"
