@@ -1,8 +1,8 @@
-﻿using Microsoft.Toolkit.Mvvm.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Windows.UI.Xaml.Controls;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Logging;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
 {
@@ -10,10 +10,15 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
     {
         public InversionOfControlPage()
         {
-            //Ioc.Default.ConfigureServices
-            //    (s => s.Add());
-
             this.InitializeComponent();
+        }
+
+        private void LogButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            var loggingService = Ioc.Default.GetService<ILoggingService>();
+
+            // © Planet Trek.
+            loggingService.Log($"Captain's Log - Stardate {DateTime.Now} - A friendly lifeform clicked the 'Log' button.");
         }
     }
 }
