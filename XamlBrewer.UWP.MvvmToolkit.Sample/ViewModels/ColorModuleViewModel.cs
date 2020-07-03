@@ -37,6 +37,14 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             set => Set(ref _color, value);
         }
 
+        public void LogColor()
+        {
+            // For a more generic conversion, go here:
+            // https://stackoverflow.com/questions/26188529/how-to-convert-a-windows-ui-color-into-a-string-color-name-in-a-windows-universa
+            
+            _loggingService.Log($"ColorModule confirms that the color is {(_color == Colors.Red ? "Red" : "Blue")}.");
+        }
+
         protected override void OnActivated()
         {
             base.OnActivated();
