@@ -11,7 +11,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Services
             return new SuperHero
             {
                 Name = "Doctor Who",
-                Nemesis = "The Daleks"
+                Nemesis = "The Daleks",
+                Tool = "Sonic Screwdriver"
             };
         }
     }

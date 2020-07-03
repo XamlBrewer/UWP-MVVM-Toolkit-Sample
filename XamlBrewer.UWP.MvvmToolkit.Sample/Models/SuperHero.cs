@@ -7,6 +7,9 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
         private string _name;
         private string _nemesis;
 
+        public SuperHero()
+        { }
+
         public string Name
         {
             get => _name;
@@ -18,5 +21,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
             get => _nemesis;
             set => Set(ref _nemesis, value);
         }
+
+        public string Tool { get; set; }
     }
 }

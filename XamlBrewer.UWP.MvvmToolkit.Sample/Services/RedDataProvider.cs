@@ -11,7 +11,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Services
             return new SuperHero
             {
                 Name = "Inspector Spacetime",
-                Nemesis = "The Blorgons"
+                Nemesis = "The Blorgons",
+                Tool = "Quantum Spanner"
             };
         }
     }

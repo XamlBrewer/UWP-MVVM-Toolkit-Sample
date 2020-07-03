@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
@@ -10,6 +11,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
     {
         private SuperHero _superHero;
         private IDataProvider _dataProvider;
+        private Task<string> _saveTheUniverseTask = Task.FromResult<string>("?");
+        private Random rnd = new Random();
 
         public BuildingBlocksPageViewModel()
         {
@@ -17,6 +20,16 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             _superHero = _dataProvider.SuperHero();
             SwitchDataProviderCommand = new RelayCommand(SwitchDataProvider);
             SwitchDataProviderAsyncCommand = new AsyncRelayCommand(SwitchDataProviderAsync);
+
+            this.PropertyChanged += BuildingBlocksPageViewModel_PropertyChanged;
+        }
+
+        private void BuildingBlocksPageViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(SaveTheUniverseTask))
+            {
+                OnPropertyChanged(nameof(SaveTheUniverseTaskResult));
+            }
         }
 
         public IDataProvider DataProvider
@@ -32,7 +45,41 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         }
 
         public ICommand SwitchDataProviderCommand { get; }
+
         public IAsyncRelayCommand SwitchDataProviderAsyncCommand { get; }
+
+        public Task<string> SaveTheUniverseTask
+        {
+            get => _saveTheUniverseTask;
+            private set
+            {
+                SetAndNotifyOnCompletion(ref _saveTheUniverseTask, () => _saveTheUniverseTask, value);
+            }
+        }
+
+        public string SaveTheUniverseTaskResult => _saveTheUniverseTask.Status == TaskStatus.RanToCompletion ? _saveTheUniverseTask.Result : "(hold you breath)";
+
+        public async void SaveTheUniverse()
+        {
+            SaveTheUniverseTask = new Task<string>(
+                () =>
+                {
+                    // Time travellers can save the world in 3 seconds.
+                    Task.Delay(3000).Wait();
+
+                    if (rnd.Next(2) > 0)
+                    {
+                        return $"We're doomed, I lost my {SuperHero.Tool}.";
+                    }
+
+                    return "We're saved ... this time.";
+                }
+            );
+
+            await Task.Delay(1000); // To see the Created state before starting.
+            _saveTheUniverseTask.Start();
+            OnPropertyChanged(nameof(SaveTheUniverseTask)); // To see more than 'Created' and 'Completed'
+        }
 
         private void SwitchDataProvider()
         {

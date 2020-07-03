@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Windows.UI.Xaml.Controls;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
@@ -27,6 +26,11 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ViewModel.SuperHero.Nemesis = _nemeses[rnd.Next(0, 5)];
+        }
+
+        private void TaskButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ViewModel.SaveTheUniverse();
         }
     }
 }
