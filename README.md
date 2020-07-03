@@ -10,6 +10,8 @@ Demonstrates using the Windows Community MVVM Toolkit in a UWP app.
 * Messenger
 * Ioc
 
+Screenshots (background image [Designed by starline / Freepik](http://www.freepik.com)):
+
 ![Screenshot](Assets/BuildingblocksPage.png?raw=true)
 
 ![Screenshot](Assets/MessengerPage.png?raw=true)
