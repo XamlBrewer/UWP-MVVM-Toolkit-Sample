@@ -2,6 +2,8 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services;
 
@@ -59,13 +61,24 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
         public string SaveTheUniverseTaskResult => _saveTheUniverseTask.Status == TaskStatus.RanToCompletion ? _saveTheUniverseTask.Result : "(hold you breath)";
 
-        public async void SaveTheUniverse()
+        public async Task SaveTheUniverse()
         {
             SaveTheUniverseTask = new Task<string>(
                 () =>
                 {
-                    // Time travellers can save the world in 3 seconds.
-                    Task.Delay(3000).Wait();
+                    // Time travellers can save the world in a few seconds.
+                    Task.Delay(2000).Wait();
+
+                    // Don't try this at home or anywhere else:
+                    // OnPropertyChanged(nameof(SaveTheUniverseTask));
+
+                    var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+                    _ = dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                      {
+                          OnPropertyChanged(nameof(SaveTheUniverseTask));
+                      });
+
+                    Task.Delay(2000).Wait();
 
                     if (rnd.Next(2) > 0)
                     {
@@ -76,7 +89,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                 }
             );
 
-            await Task.Delay(1000); // To see the Created state before starting.
+            await Task.Delay(2000); // To see the Created state before starting.
             _saveTheUniverseTask.Start();
             OnPropertyChanged(nameof(SaveTheUniverseTask)); // To see more than 'Created' and 'Completed'
         }
