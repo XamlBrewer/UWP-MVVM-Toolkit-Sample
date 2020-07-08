@@ -40,6 +40,9 @@
                     <Button Click="LogButton_Click"
                             HorizontalAlignment="Stretch"
                             Margin="0 12">Log</Button>
+                    <Button Click="DialogButton_Click"
+                            HorizontalAlignment="Stretch"
+                            Margin="0 12">Dialog</Button>
                 </StackPanel>
             </Grid>
             <Grid Padding="0 0 20 20">
@@ -71,6 +74,9 @@
                     <Button Click="AnotherLogButton_Click"
                             HorizontalAlignment="Stretch"
                             Margin="0 12">Log</Button>
+                    <Button Click="AnotherDialogButton_Click"
+                            HorizontalAlignment="Stretch"
+                            Margin="0 12">Dialog</Button>
                 </StackPanel>
             </Grid>
         </VariableSizedWrapGrid>

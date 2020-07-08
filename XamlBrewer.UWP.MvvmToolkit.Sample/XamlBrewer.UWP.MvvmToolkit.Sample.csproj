@@ -123,6 +123,7 @@
     <Compile Include="Models\Theme.cs" />
     <Compile Include="Services\DataProvider\IDataProvider.cs" />
     <Compile Include="Services\DataProvider\BlueDataProvider.cs" />
+    <Compile Include="Services\Dialogs\ModalView.cs" />
     <Compile Include="Services\Logging\DebugLoggingService.cs" />
     <Compile Include="Services\Logging\ILoggingService.cs" />
     <Compile Include="Services\Messenger\Messages\ThemeChangedMessage.cs" />
