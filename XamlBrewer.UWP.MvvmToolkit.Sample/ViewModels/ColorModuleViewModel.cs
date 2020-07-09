@@ -68,6 +68,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             });
         }
 
+        // Note: This is handled automatically by ViewModelBase
         //protected override void OnDeactivated()
         //{
         //    // Messenger.Unregister(this, t); auto
