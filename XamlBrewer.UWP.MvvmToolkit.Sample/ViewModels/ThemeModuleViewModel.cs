@@ -12,7 +12,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public ThemeModuleViewModel()
         {
             // 'ThemeAwareViewModel'
-            _theme = Messenger.Send(new ThemeRequestMessage());
+            _theme = Messenger.Send<ThemeRequestMessage>();
             LoggingService.Log($"ThemeModule requested theme and received {_theme.Name}.");
             _isDefaultTheme = _theme.Name == Theme.Default.Name;
             if (!_isDefaultTheme)

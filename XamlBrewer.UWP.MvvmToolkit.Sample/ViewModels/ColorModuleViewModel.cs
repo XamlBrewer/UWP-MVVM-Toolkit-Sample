@@ -21,7 +21,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             _dialogService = modalView;
 
             // 'ThemeAwareViewModel'
-            _theme = Messenger.Send(new ThemeRequestMessage());
+            _theme = Messenger.Send<ThemeRequestMessage>();
             _loggingService.Log($"ColorModule requested theme and received {_theme.Name}.");
             if (_theme.Name == "Red")
             {

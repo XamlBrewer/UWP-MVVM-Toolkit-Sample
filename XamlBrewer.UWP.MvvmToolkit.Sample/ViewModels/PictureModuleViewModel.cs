@@ -29,7 +29,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             var loggingService = Ioc.Default.GetService<ILoggingService>();
 
-            _theme = Messenger.Send(new ThemeRequestMessage());
+            _theme = Messenger.Send<ThemeRequestMessage>();
             loggingService.Log($"PictureModule requested theme and received {_theme.Name}.");
             UpdatePicture(_theme.Name);
 

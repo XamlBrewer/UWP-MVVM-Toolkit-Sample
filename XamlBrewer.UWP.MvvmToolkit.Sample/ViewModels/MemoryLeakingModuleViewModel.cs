@@ -13,7 +13,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public MemoryLeakingModuleViewModel()
         {
             // 'ThemeAwareViewModel'
-            _theme = Messenger.Send(new ThemeRequestMessage());
+            _theme = Messenger.Send<ThemeRequestMessage>();
             LoggingService.Log($"MemoryLeakingModule requested theme and received {_theme.Name}.");
             if (_theme.Name == "Red")
             {
