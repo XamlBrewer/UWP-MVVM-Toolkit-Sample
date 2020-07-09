@@ -1,4 +1,5 @@
-﻿using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
+﻿using Microsoft.Toolkit.Mvvm.Messaging;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
@@ -6,14 +7,13 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
     public class ThemeModuleViewModel : MyViewModelBase
     {
         private Theme _theme;
-        private int t;
         private bool _isDefaultTheme;
 
         public ThemeModuleViewModel()
         {
             // 'ThemeAwareViewModel'
-            _theme = Messenger.Send(new ThemeRequestMessage(), t);
-            LoggingService.Log($"ThemeModule requested thema and received {_theme.Name}.");
+            _theme = Messenger.Send(new ThemeRequestMessage());
+            LoggingService.Log($"ThemeModule requested theme and received {_theme.Name}.");
             _isDefaultTheme = _theme.Name == Theme.Default.Name;
             if (!_isDefaultTheme)
             {
@@ -49,7 +49,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             if (broadcast)
             {
                 LoggingService.Log($"ThemeModule requested thema change to {_theme.Name}.");
-                Messenger.Send(new ThemeChangedMessage(_theme), t);
+                Messenger.Send(new ThemeChangedMessage(_theme));
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Mvvm.DependencyInjection;
+﻿using Microsoft.Toolkit.Mvvm.Messaging;
 using System.Threading.Tasks;
 using Windows.UI;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
@@ -12,7 +11,6 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
     public class ColorModuleViewModel : MyViewModelBase
     {
         private Color _color;
-        private int t;
         private Theme _theme;
         private ILoggingService _loggingService; // = Ioc.Default.GetService<ILoggingService>();
         private ModalView _dialogService;
@@ -23,8 +21,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             _dialogService = modalView;
 
             // 'ThemeAwareViewModel'
-            _theme = Messenger.Send(new ThemeRequestMessage(), t);
-            _loggingService.Log($"ColorModule requested thema and received {_theme.Name}.");
+            _theme = Messenger.Send(new ThemeRequestMessage());
+            _loggingService.Log($"ColorModule requested theme and received {_theme.Name}.");
             if (_theme.Name == "Red")
             {
                 Color = Colors.Red;
@@ -43,10 +41,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
         public void LogColor()
         {
-            // For a more generic conversion, go here:
-            // https://stackoverflow.com/questions/26188529/how-to-convert-a-windows-ui-color-into-a-string-color-name-in-a-windows-universa
-            
-            _loggingService.Log($"ColorModule confirms that the color is {(_color == Colors.Red ? "Red" : "Blue")}.");
+            _loggingService.Log($"ColorModule confirms that the color is {ColorHelper.ToDisplayName(_color)}.");
         }
 
         public async Task<bool> GetUserConsentAsync()
@@ -58,7 +53,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             base.OnActivated();
 
-            Messenger.Register<ThemeChangedMessage, int>(this, t, m =>
+            Messenger.Register<ThemeChangedMessage>(this, m =>
             {
                 _loggingService.Log($"ColorModule received change to {m.Value.Name}.");
 
