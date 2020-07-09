@@ -125,8 +125,6 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
         private async Task SwitchDataProviderAsync()
         {
-            IsBusy = true;
-
             await Task.Delay(1000);
 
             if (_dataProvider is RedDataProvider)
@@ -141,7 +139,6 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             _superHero = _dataProvider.SuperHero();
             OnPropertyChanged(null);
 
-            IsBusy = false;
         }
     }
 }
