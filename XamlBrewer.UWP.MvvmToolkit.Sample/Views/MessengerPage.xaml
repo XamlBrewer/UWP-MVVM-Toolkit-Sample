@@ -196,7 +196,7 @@
                 <TextBlock VerticalAlignment="Top"
                            TextWrapping="Wrap"
                            Padding="20"
-                           Grid.Row="1">I react to Theme changes.</TextBlock>
+                           Grid.Row="1">Look at debug output, switch back &amp; forth to page and I 'receive' duplicate msgs.</TextBlock>
                 <Border CornerRadius="4"
                         Grid.Row="1"
                         Grid.Column="1"
