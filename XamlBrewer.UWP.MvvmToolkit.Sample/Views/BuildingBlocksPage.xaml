@@ -114,7 +114,7 @@
         </VariableSizedWrapGrid>
         <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
                             Background="Transparent"
-                            IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}"
+                            IsActive="{x:Bind ViewModel.SwitchDataProviderAsyncCommand.ExecutionTask.IsCompleted.Equals(x:False), FallbackValue=False, Mode=OneWay}"
                             Height="200"
                             Width="200" />
     </Grid>

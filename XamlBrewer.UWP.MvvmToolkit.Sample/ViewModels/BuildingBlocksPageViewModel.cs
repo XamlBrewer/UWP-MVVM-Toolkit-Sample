@@ -75,6 +75,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                     var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
                     _ = dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                       {
+                          // Just for Example (to see more than 'Created' and 'Completed')
                           OnPropertyChanged(nameof(SaveTheUniverseTask));
                       });
 
@@ -91,7 +92,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             await Task.Delay(2000); // To see the Created state before starting.
             _saveTheUniverseTask.Start();
-            OnPropertyChanged(nameof(SaveTheUniverseTask)); // To see more than 'Created' and 'Completed'
+            OnPropertyChanged(nameof(SaveTheUniverseTask)); // Just for Example (to see more than 'Created' and 'Completed')
         }
 
         private void SwitchDataProvider()
@@ -105,7 +106,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                 DataProvider = new RedDataProvider();
             }
 
-            // SuperHero = _dataProvider.SuperHero();
+            SuperHero = _dataProvider.SuperHero();
 
             // or
 
@@ -114,8 +115,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             // or
 
-            _superHero = _dataProvider.SuperHero();
-            OnPropertyChanged(null);
+            // _superHero = _dataProvider.SuperHero();
+            // OnPropertyChanged(null);
 
             // but not
 
@@ -125,8 +126,6 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
         private async Task SwitchDataProviderAsync()
         {
-            IsBusy = true;
-
             await Task.Delay(1000);
 
             if (_dataProvider is RedDataProvider)
@@ -138,10 +137,12 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                 DataProvider = new RedDataProvider();
             }
 
-            _superHero = _dataProvider.SuperHero();
-            OnPropertyChanged(null);
+            SuperHero = _dataProvider.SuperHero();
 
-            IsBusy = false;
+            // or
+
+            // _superHero = _dataProvider.SuperHero();
+            // OnPropertyChanged(null);
         }
     }
 }
