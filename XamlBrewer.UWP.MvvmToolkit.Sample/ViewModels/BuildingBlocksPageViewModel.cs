@@ -59,7 +59,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             }
         }
 
-        public string SaveTheUniverseTaskResult => _saveTheUniverseTask.Status == TaskStatus.RanToCompletion ? _saveTheUniverseTask.Result : "(hold you breath)";
+        public string SaveTheUniverseTaskResult => _saveTheUniverseTask.Status == TaskStatus.RanToCompletion ? _saveTheUniverseTask.Result : "(hold your breath)";
 
         public async Task SaveTheUniverse()
         {
