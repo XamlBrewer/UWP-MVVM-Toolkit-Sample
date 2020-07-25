@@ -52,6 +52,13 @@
                                     ShowAsMonochrome="False" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="Messenger with Token"
+                                          Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.MessengerWithTokenPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/token.png"
+                                    ShowAsMonochrome="False" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
                 <winui:NavigationViewItem Content="Dependency Injection"
                                           Tag="XamlBrewer.UWP.MvvmToolkit.Sample.Views.InversionOfControlPage">
                     <winui:NavigationViewItem.Icon>
