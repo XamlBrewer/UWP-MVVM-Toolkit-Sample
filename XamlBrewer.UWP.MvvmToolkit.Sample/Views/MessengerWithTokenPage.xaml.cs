@@ -46,13 +46,25 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         private void BlanketButton_Click(object sender, RoutedEventArgs e)
         {
             ClearReactions();
+            // Messenger.Default.Send<CasualtyMessage>();
             Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
+        }
+
+        private void CameraModule_Loaded(object sender, RoutedEventArgs e)
+        {
+            CameraModuleViewModel.IsActive = true;
+        }
+
+        private void CameraModule_Unloaded(object sender, RoutedEventArgs e)
+        {
+            CameraModuleViewModel.IsActive = false;
         }
 
         private void ClearReactions()
         {
             PillowModuleViewModel.Reaction = string.Empty;
             BlanketModuleViewModel.Reaction = string.Empty;
+            CameraModuleViewModel.Reaction = string.Empty;
         }
     }
 }

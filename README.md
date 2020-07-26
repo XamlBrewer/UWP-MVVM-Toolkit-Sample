@@ -14,4 +14,6 @@ Screenshots (background image [Designed by starline / Freepik](http://www.freepi
 
 ![Screenshot](Assets/MessengerPage.png?raw=true)
 
+![Screenshot](Assets/MessengerWithTokenPage.png?raw=true)
+
 ![Screenshot](Assets/InversionOfControlPage.png?raw=true)

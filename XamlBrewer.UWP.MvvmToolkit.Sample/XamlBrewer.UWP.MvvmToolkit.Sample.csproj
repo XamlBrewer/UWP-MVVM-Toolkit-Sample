@@ -136,6 +136,7 @@
     <Compile Include="ViewModels\ColorModuleViewModel.cs" />
     <Compile Include="ViewModels\MyViewModelBase.cs" />
     <Compile Include="ViewModels\BlanketModuleViewModel.cs" />
+    <Compile Include="ViewModels\CameraModuleViewModel.cs" />
     <Compile Include="ViewModels\PillowModuleViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ThemeModuleViewModel.cs" />
@@ -165,6 +166,7 @@
     <Content Include="Assets\Background.jpg" />
     <Content Include="Assets\Biohazard.png" />
     <Content Include="Assets\Blanketsburg.png" />
+    <Content Include="Assets\britta.png" />
     <Content Include="Assets\BuildingBlocks.png" />
     <Content Include="Assets\DoctorWho.png" />
     <Content Include="Assets\Injection.png" />

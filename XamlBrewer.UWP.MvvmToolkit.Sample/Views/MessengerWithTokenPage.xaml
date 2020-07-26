@@ -99,6 +99,7 @@
                            Padding="20"
                            Grid.Row="1">I react to pillowman casualties.</TextBlock>
                 <TextBlock Text="{x:Bind PillowModuleViewModel.Reaction, Mode=OneWay}"
+                           Foreground="DarkKhaki"
                            VerticalAlignment="Bottom"
                            TextWrapping="Wrap"
                            Padding="20"
@@ -150,6 +151,7 @@
                            Padding="20"
                            Grid.Row="1">I react to blanketeer casualties.</TextBlock>
                 <TextBlock Text="{x:Bind BlanketModuleViewModel.Reaction, Mode=OneWay}"
+                           Foreground="DarkKhaki"
                            VerticalAlignment="Bottom"
                            TextWrapping="Wrap"
                            Padding="20"
@@ -159,13 +161,15 @@
                        Grid.Column="1"
                        Margin="20" />
             </Grid>
-            <Grid x:Name="Module"
+            <Grid x:Name="CameraModule"
+                  Loaded="CameraModule_Loaded"
+                  Unloaded="CameraModule_Unloaded"
                   VerticalAlignment="Stretch"
                   HorizontalAlignment="Stretch"
                   Padding="0 0 20 20">
-                <!--<Grid.DataContext>
-                    <viewModels:MemoryLeakingModuleViewModel x:Name="ViewModel3" />
-                </Grid.DataContext>-->
+                <Grid.DataContext>
+                    <viewModels:CameraModuleViewModel x:Name="CameraModuleViewModel" />
+                </Grid.DataContext>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
@@ -197,6 +201,16 @@
                            TextWrapping="Wrap"
                            Padding="20"
                            Grid.Row="1">I react to all casualties.</TextBlock>
+                <TextBlock Text="{x:Bind CameraModuleViewModel.Reaction, Mode=OneWay}"
+                           Foreground="DarkKhaki"
+                           VerticalAlignment="Bottom"
+                           TextWrapping="Wrap"
+                           Padding="20"
+                           Grid.Row="1" />
+                <Image Source="/Assets/Britta.png"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Margin="20" />
             </Grid>
         </VariableSizedWrapGrid>
     </Grid>
