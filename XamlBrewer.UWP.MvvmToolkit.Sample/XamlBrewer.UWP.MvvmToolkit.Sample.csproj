@@ -214,7 +214,7 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Mvvm">
-      <Version>7.0.0-build.94.g985f5e4559</Version>
+      <Version>7.0.0-build.149</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.4.2</Version>

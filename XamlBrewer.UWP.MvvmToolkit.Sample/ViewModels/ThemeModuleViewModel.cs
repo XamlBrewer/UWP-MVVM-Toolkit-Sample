@@ -31,7 +31,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                     ToggleTheme(true);
                 }
 
-                Set(ref _isDefaultTheme, value);
+                SetProperty(ref _isDefaultTheme, value);
             }
         }
 

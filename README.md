@@ -1,11 +1,12 @@
 # UWP MVVM Toolkit Sample
 
-(Currently references a CI build of the NuGet package)
+(Currently references the [MyGet prerelease](https://dotnet.myget.org/feed/uwpcommunitytoolkit/package/nuget/Microsoft.Toolkit.Mvvm) of the NuGet package)
 
 Demonstrates using the Windows Community MVVM Toolkit in a UWP app.
-* Observable and ViewModelBase
+* Observable
 * RelayCommand and AsyncRelayCommand
-* Messenger
+* Messenger and ObservableRecipient
+* Messenger with Token
 * Ioc
 
 Screenshots (background image [Designed by starline / Freepik](http://www.freepik.com)):

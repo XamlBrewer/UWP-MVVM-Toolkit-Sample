@@ -37,13 +37,13 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public IDataProvider DataProvider
         {
             get => _dataProvider;
-            set => Set(ref _dataProvider, value);
+            set => SetProperty(ref _dataProvider, value);
         }
 
         public SuperHero SuperHero
         {
             get => _superHero;
-            set => Set(ref _superHero, value);
+            set => SetProperty(ref _superHero, value);
         }
 
         public ICommand SwitchDataProviderCommand { get; }
@@ -55,7 +55,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             get => _saveTheUniverseTask;
             private set
             {
-                SetAndNotifyOnCompletion(ref _saveTheUniverseTask, () => _saveTheUniverseTask, value);
+                SetPropertyAndNotifyOnCompletion(ref _saveTheUniverseTask, () => _saveTheUniverseTask, value);
             }
         }
 

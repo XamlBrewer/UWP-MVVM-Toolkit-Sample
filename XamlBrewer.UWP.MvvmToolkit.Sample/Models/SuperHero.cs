@@ -13,13 +13,13 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
         public string Name
         {
             get => _name;
-            set => Set(ref _name, value);
+            set => SetProperty(ref _name, value);
         }
 
         public string Nemesis
         {
             get => _nemesis;
-            set => Set(ref _nemesis, value);
+            set => SetProperty(ref _nemesis, value);
         }
 
         public string Tool { get; set; }

@@ -6,7 +6,7 @@ using System;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 {
-    public class CameraModuleViewModel : ViewModelBase
+    public class CameraModuleViewModel : ObservableRecipient
     {
         private string _reaction;
         private List<string> _reactions = new List<string>
@@ -22,7 +22,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public string Reaction
         {
             get => _reaction;
-            set => Set(ref _reaction, value);
+            set => SetProperty(ref _reaction, value);
         }
 
         protected override void OnActivated()

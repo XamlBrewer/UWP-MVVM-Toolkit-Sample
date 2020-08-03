@@ -5,7 +5,7 @@ using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 {
-    public class ShellViewModel : ViewModelBase
+    public class ShellViewModel : ObservableRecipient
     {
         private Theme _theme = Theme.Default;
 

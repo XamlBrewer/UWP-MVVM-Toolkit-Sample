@@ -36,7 +36,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public Color Color
         {
             get => _color;
-            set => Set(ref _color, value);
+            set => SetProperty(ref _color, value);
         }
 
         public void LogColor()

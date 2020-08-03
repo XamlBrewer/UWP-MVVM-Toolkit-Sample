@@ -20,7 +20,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         public BitmapImage Image
         {
             get => _image;
-            set => Set(ref _image, value);
+            set => SetProperty(ref _image, value);
         }
 
         protected override void OnActivated()
