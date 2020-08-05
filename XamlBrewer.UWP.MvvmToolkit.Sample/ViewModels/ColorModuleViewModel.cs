@@ -68,10 +68,10 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             });
         }
 
-        // Note: This is handled automatically by ViewModelBase
+        // Note: This is handled automatically by ObservableRecipient
         //protected override void OnDeactivated()
         //{
-        //    // Messenger.Unregister(this, t); auto
+        //    Messenger.UnregisterAll(this);
         //    base.OnDeactivated();
         //}
     }
