@@ -128,21 +128,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             await Task.Delay(1000);
 
-            if (_dataProvider is RedDataProvider)
-            {
-                DataProvider = new BlueDataProvider();
-            }
-            else
-            {
-                DataProvider = new RedDataProvider();
-            }
-
-            SuperHero = _dataProvider.SuperHero();
-
-            // or
-
-            // _superHero = _dataProvider.SuperHero();
-            // OnPropertyChanged(null);
+            SwitchDataProvider();
         }
     }
 }
