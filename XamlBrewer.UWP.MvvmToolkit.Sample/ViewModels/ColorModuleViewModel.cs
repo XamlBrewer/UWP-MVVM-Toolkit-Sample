@@ -12,7 +12,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
     {
         private Color _color;
         private Theme _theme;
-        private ILoggingService _loggingService; // = Ioc.Default.GetService<ILoggingService>();
+        private ILoggingService _loggingService;
         private ModalView _dialogService;
 
         public ColorModuleViewModel(ILoggingService loggingService, ModalView modalView)

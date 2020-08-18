@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using Windows.UI.Xaml.Media.Imaging;
@@ -27,7 +26,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             base.OnActivated();
 
-            var loggingService = Ioc.Default.GetService<ILoggingService>();
+            var loggingService = App.ServiceProvider.GetService<ILoggingService>();
 
             _theme = Messenger.Send<ThemeRequestMessage>();
             loggingService.Log($"PictureModule requested theme and received {_theme.Name}.");
