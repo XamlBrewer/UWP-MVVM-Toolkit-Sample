@@ -21,7 +21,9 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             _dataProvider = new RedDataProvider();
             _superHero = _dataProvider.SuperHero();
             SwitchDataProviderCommand = new RelayCommand(SwitchDataProvider);
-            SwitchDataProviderAsyncCommand = new AsyncRelayCommand(SwitchDataProviderAsync);
+            SwitchDataProviderAsyncCommand = new AsyncRelayCommand(
+                SwitchDataProviderAsync, 
+                () => _dataProvider is RedDataProvider);
 
             this.PropertyChanged += BuildingBlocksPageViewModel_PropertyChanged;
         }
@@ -122,6 +124,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             // _superHero = _dataProvider.SuperHero();
             // OnPropertyChanged();
+
+            SwitchDataProviderAsyncCommand.NotifyCanExecuteChanged();
         }
 
         private async Task SwitchDataProviderAsync()
