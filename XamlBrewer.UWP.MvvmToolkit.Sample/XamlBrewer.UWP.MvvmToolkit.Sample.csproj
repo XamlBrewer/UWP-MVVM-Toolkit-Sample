@@ -214,10 +214,10 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Mvvm">
-      <Version>7.0.0-build.149</Version>
+      <Version>7.0.0-preview2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.5.0-prerelease.200708003</Version>
+      <Version>2.5.0-prerelease.200812001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
