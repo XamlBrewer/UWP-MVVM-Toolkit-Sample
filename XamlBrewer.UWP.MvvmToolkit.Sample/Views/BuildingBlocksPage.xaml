@@ -112,9 +112,14 @@
                 </StackPanel>
             </Grid>
         </VariableSizedWrapGrid>
-        <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
+        <!--<winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
                             Background="Transparent"
                             IsActive="{x:Bind ViewModel.SwitchDataProviderAsyncCommand.ExecutionTask.IsCompleted.Equals(x:False), FallbackValue=False, Mode=OneWay}"
+                            Height="200"
+                            Width="200" />-->        
+        <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
+                            Background="Transparent"
+                            IsActive="{x:Bind ViewModel.SwitchDataProviderAsyncCommand.IsRunning, FallbackValue=False, Mode=OneWay}"
                             Height="200"
                             Width="200" />
     </Grid>
