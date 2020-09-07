@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
@@ -28,7 +29,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             base.OnActivated();
 
-            Messenger.Register<CasualtyMessage, string>(this, "pillow", m => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "pillow", m => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Pillow, m => { OnCasualtyMessageReceived(); });
         }
 
         private void OnCasualtyMessageReceived()

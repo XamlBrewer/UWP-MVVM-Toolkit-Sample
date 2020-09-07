@@ -1,6 +1,4 @@
 ﻿using Microsoft.Toolkit.Mvvm.Messaging;
-using System;
-using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
@@ -30,7 +28,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         private void PillowButton_Click(object sender, RoutedEventArgs e)
         {
             ClearReactions();
-            Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "pillow");
+            // Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "pillow");
+            Messenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Pillow);
         }
 
         private void BlanketModule_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +46,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         {
             ClearReactions();
             // Messenger.Default.Send<CasualtyMessage>();
-            Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
+            // Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
+            Messenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Blanket);
         }
 
         private void CameraModule_Loaded(object sender, RoutedEventArgs e)

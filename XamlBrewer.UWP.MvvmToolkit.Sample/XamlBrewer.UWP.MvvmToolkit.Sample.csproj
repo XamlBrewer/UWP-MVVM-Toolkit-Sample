@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Party.cs" />
     <Compile Include="Models\SuperHero.cs" />
     <Compile Include="Models\Theme.cs" />
     <Compile Include="Services\DataProvider\IDataProvider.cs" />

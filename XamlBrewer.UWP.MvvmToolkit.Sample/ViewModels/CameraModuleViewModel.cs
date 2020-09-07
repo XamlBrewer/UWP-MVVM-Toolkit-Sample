@@ -1,8 +1,9 @@
-﻿using Microsoft.Toolkit.Mvvm.Messaging; // Hosts the 'Register' extension method without token
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
-using System.Collections.Generic;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging; // Hosts the 'Register' extension method without token
 using System;
+using System.Collections.Generic;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
+using XamlBrewer.UWP.MvvmToolkit.Sample.Services.Messenger.Messages;
 
 namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 {
@@ -34,8 +35,10 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
             // So we need to know all the tokens and register for them - or the sender has to send twice.
             // Sending twice (empty message without token, and detailed message with token) is the safer approach.
-            Messenger.Register<CasualtyMessage, string>(this, "blanket", m => { OnCasualtyMessageReceived(); });
-            Messenger.Register<CasualtyMessage, string>(this, "pillow", m => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "blanket", m => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Blanket, m => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "pillow", m => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Pillow, m => { OnCasualtyMessageReceived(); });
         }
 
         private void OnCasualtyMessageReceived()
