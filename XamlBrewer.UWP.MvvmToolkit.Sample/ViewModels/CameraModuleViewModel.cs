@@ -31,14 +31,14 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             base.OnActivated();
 
             // Does not see the messages with a token.
-            Messenger.Register<CasualtyMessage>(this, m => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage>(this, (r, m) => { OnCasualtyMessageReceived(); });
 
             // So we need to know all the tokens and register for them - or the sender has to send twice.
             // Sending twice (empty message without token, and detailed message with token) is the safer approach.
-            // Messenger.Register<CasualtyMessage, string>(this, "blanket", m => { OnCasualtyMessageReceived(); });
-            Messenger.Register<CasualtyMessage, Party>(this, Party.Blanket, m => { OnCasualtyMessageReceived(); });
-            // Messenger.Register<CasualtyMessage, string>(this, "pillow", m => { OnCasualtyMessageReceived(); });
-            Messenger.Register<CasualtyMessage, Party>(this, Party.Pillow, m => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "blanket", (r,m) => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Blanket, (r, m) => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "pillow", (r,m) => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Pillow, (r, m) => { OnCasualtyMessageReceived(); });
         }
 
         private void OnCasualtyMessageReceived()

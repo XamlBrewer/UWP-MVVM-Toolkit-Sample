@@ -25,7 +25,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             }
 
             // Note: This should normally be done in OnActivated, but we're showing the memory leak in this example by registering it here.
-            Messenger.Register<ThemeChangedMessage>(this, m =>
+            Messenger.Register<ThemeChangedMessage>(this, (r, m) =>
             {
                 LoggingService.Log($"MemoryLeakingModule received change to {m.Value.Name}.");
 

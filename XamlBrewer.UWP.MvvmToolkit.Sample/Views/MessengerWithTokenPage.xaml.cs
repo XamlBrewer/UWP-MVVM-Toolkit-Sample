@@ -29,7 +29,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         {
             ClearReactions();
             // Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "pillow");
-            Messenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Pillow);
+            WeakReferenceMessenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Pillow);
         }
 
         private void BlanketModule_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +47,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
             ClearReactions();
             // Messenger.Default.Send<CasualtyMessage>();
             // Messenger.Default.Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
-            Messenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Blanket);
+            WeakReferenceMessenger.Default.Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Blanket);
         }
 
         private void CameraModule_Loaded(object sender, RoutedEventArgs e)

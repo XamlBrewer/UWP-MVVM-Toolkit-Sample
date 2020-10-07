@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using XamlBrewer.UWP.MvvmToolkit.Sample.Models;
@@ -28,9 +29,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         protected override void OnActivated()
         {
             base.OnActivated();
-
-            // Messenger.Register<CasualtyMessage, string>(this, "blanket", m => { OnCasualtyMessageReceived(); });
-            Messenger.Register<CasualtyMessage, Party>(this, Party.Blanket, m => { OnCasualtyMessageReceived(); });
+            // Messenger.Register<CasualtyMessage, string>(this, "blanket", (r,m) => { OnCasualtyMessageReceived(); });
+            Messenger.Register<CasualtyMessage, Party>(this, Party.Blanket, (r, m) => { OnCasualtyMessageReceived(); });
         }
 
         private void OnCasualtyMessageReceived()

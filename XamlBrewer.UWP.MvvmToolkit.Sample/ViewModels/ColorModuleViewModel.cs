@@ -53,7 +53,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         {
             base.OnActivated();
 
-            Messenger.Register<ThemeChangedMessage>(this, m =>
+            Messenger.Register<ThemeChangedMessage>(this, (r, m) =>
             {
                 _loggingService.Log($"ColorModule received change to {m.Value.Name}.");
 

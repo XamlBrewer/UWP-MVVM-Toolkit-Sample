@@ -13,7 +13,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
     {
         private SuperHero _superHero;
         private IDataProvider _dataProvider;
-        private Task<string> _saveTheUniverseTask = Task.FromResult<string>("?");
+        private TaskNotifier<string> _saveTheUniverseTask;
         private Random rnd = new Random();
 
         public BuildingBlocksPageViewModel()
@@ -57,11 +57,11 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             get => _saveTheUniverseTask;
             private set
             {
-                SetPropertyAndNotifyOnCompletion(ref _saveTheUniverseTask, () => _saveTheUniverseTask, value);
+                SetPropertyAndNotifyOnCompletion(ref _saveTheUniverseTask, value);
             }
         }
 
-        public string SaveTheUniverseTaskResult => _saveTheUniverseTask.Status == TaskStatus.RanToCompletion ? _saveTheUniverseTask.Result : "(hold your breath)";
+        public string SaveTheUniverseTaskResult => SaveTheUniverseTask == null ? "?" : SaveTheUniverseTask.Status == TaskStatus.RanToCompletion ? SaveTheUniverseTask.Result : "(hold your breath)";
 
         public async Task SaveTheUniverse()
         {
@@ -93,7 +93,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             );
 
             await Task.Delay(2000); // To see the Created state before starting.
-            _saveTheUniverseTask.Start();
+            SaveTheUniverseTask.Start();
             OnPropertyChanged(nameof(SaveTheUniverseTask)); // Just for Example (to see more than 'Created' and 'Completed')
         }
 

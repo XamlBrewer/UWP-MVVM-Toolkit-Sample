@@ -11,12 +11,12 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
 
         public ShellViewModel()
         {
-            Messenger.Register<ThemeRequestMessage>(this, m =>
+            Messenger.Register<ThemeRequestMessage>(this, (r, m) =>
             {
                 m.Reply(_theme); 
             });
 
-            Messenger.Register<ThemeChangedMessage>(this, m =>
+            Messenger.Register<ThemeChangedMessage>(this, (r, m) =>
             {
                 _theme = m.Value;
             });

@@ -32,7 +32,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
             loggingService.Log($"PictureModule requested theme and received {_theme.Name}.");
             UpdatePicture(_theme.Name);
 
-            Messenger.Register<ThemeChangedMessage>(this, m =>
+            Messenger.Register<ThemeChangedMessage>(this, (r,m) =>
             {
                 loggingService.Log($"PictureModule received change to {m.Value.Name}.");
 
