@@ -111,12 +111,58 @@
                             HorizontalAlignment="Stretch">Switch DataProvider Async</Button>
                 </StackPanel>
             </Grid>
+            <Grid Padding="0 0 20 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border CornerRadius="4"
+                        Grid.RowSpan="2">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".1" />
+                    </Border.Background>
+                </Border>
+
+                <Border CornerRadius="4"
+                        Height="30">
+                    <Border.Background>
+                        <SolidColorBrush Color="White"
+                                         Opacity=".2" />
+                    </Border.Background>
+                    <TextBlock VerticalAlignment="Center"
+                               Padding="20 4">ObservableValidator</TextBlock>
+                </Border>
+                <StackPanel VerticalAlignment="Top"
+                            Padding="20"
+                            Grid.Row="1">
+                    <TextBox Text="{x:Bind ViewModel.StudyGroup.Topic, Mode=TwoWay}"
+                             PlaceholderText="Topic" />
+                    <TextBox Text="{x:Bind ViewModel.StudyGroup.Class, Mode=TwoWay}"
+                             PlaceholderText="Class" />
+                    <TextBox Text="{x:Bind ViewModel.StudyGroup.Hobbies, Mode=TwoWay}"
+                             PlaceholderText="Hobbies" />
+                    <Grid>
+                        <TextBlock Text="Study Group" />
+                        <SymbolIcon Symbol="ReportHacked"
+                                    Foreground="Red"
+                                    Visibility="{x:Bind ViewModel.StudyGroup.HasErrors, Mode=OneWay}"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 4">
+                            <ToolTipService.ToolTip>
+                                <TextBlock Text="{x:Bind ViewModel.StudyGroup.Errors, Mode=OneWay}"
+                                           Foreground="Red" />
+                            </ToolTipService.ToolTip>
+                        </SymbolIcon>
+                    </Grid>
+                </StackPanel>
+            </Grid>
         </VariableSizedWrapGrid>
         <!--<winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
                             Background="Transparent"
                             IsActive="{x:Bind ViewModel.SwitchDataProviderAsyncCommand.ExecutionTask.IsCompleted.Equals(x:False), FallbackValue=False, Mode=OneWay}"
                             Height="200"
-                            Width="200" />-->        
+                            Width="200" />-->
         <winui:ProgressRing Foreground="{ThemeResource SystemAccentColorBrush}"
                             Background="Transparent"
                             IsActive="{x:Bind ViewModel.SwitchDataProviderAsyncCommand.IsRunning, FallbackValue=False, Mode=OneWay}"

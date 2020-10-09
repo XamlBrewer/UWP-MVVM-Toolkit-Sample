@@ -15,6 +15,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         private IDataProvider _dataProvider;
         private TaskNotifier<string> _saveTheUniverseTask;
         private Random rnd = new Random();
+        private StudyGroup _studyGroup = new StudyGroup();
 
         public BuildingBlocksPageViewModel()
         {
@@ -26,7 +27,13 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
                 () => _dataProvider is RedDataProvider);
 
             this.PropertyChanged += BuildingBlocksPageViewModel_PropertyChanged;
+            // _studyGroup.ErrorsChanged += _studyGroup_ErrorsChanged;
         }
+
+        //private void _studyGroup_ErrorsChanged(object sender, System.ComponentModel.DataErrorsChangedEventArgs e)
+        //{
+        //    var errors = _studyGroup.GetErrors(null);
+        //}
 
         private void BuildingBlocksPageViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -62,6 +69,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels
         }
 
         public string SaveTheUniverseTaskResult => SaveTheUniverseTask == null ? "?" : SaveTheUniverseTask.Status == TaskStatus.RanToCompletion ? SaveTheUniverseTask.Result : "(hold your breath)";
+
+        public StudyGroup StudyGroup => _studyGroup;
 
         public async Task SaveTheUniverse()
         {
