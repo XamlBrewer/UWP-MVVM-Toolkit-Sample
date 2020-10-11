@@ -5,10 +5,10 @@
 Demonstrates using the Windows Community MVVM Toolkit in a UWP app.
 * Observable
 * RelayCommand and AsyncRelayCommand
-* ObservableValidator (IN PROGRESS)
+* ObservableValidator
 * Messenger and ObservableRecipient
 * Messenger with Token
-* Ioc
+* Ioc integration
 
 Screenshots (background image [Designed by starline / Freepik](http://www.freepik.com)):
 

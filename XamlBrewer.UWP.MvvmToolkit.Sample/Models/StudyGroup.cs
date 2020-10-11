@@ -41,11 +41,11 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
             set => SetProperty(ref _class, value, true);
         }
 
-        // TODO: a custom data annotation that compares with "Paintball".
+        [RegularExpression(@".*[pP]aintball.*", ErrorMessage = "Hobbies should contain 'Paintball'.")]
         public string Hobbies
         {
             get => _hobbies;
-            set => SetProperty(ref _hobbies, value);
+            set => SetProperty(ref _hobbies, value, true);
         }
 
         public string Errors => string.Join(Environment.NewLine, from ValidationResult e in GetErrors(null) select e.ErrorMessage);
