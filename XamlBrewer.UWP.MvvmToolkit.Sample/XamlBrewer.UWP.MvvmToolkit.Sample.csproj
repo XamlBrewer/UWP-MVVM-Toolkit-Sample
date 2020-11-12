@@ -132,7 +132,6 @@
     <Compile Include="Services\Messenger\Messages\ThemeChangedMessage.cs" />
     <Compile Include="Services\Messenger\Messages\ThemeRequestMessage.cs" />
     <Compile Include="Services\DataProvider\RedDataProvider.cs" />
-    <Compile Include="Services\App.ServiceProvider.cs" />
     <Compile Include="ViewModels\BuildingBlocksPageViewModel.cs" />
     <Compile Include="ViewModels\PictureModuleViewModel.cs" />
     <Compile Include="ViewModels\MemoryLeakingModuleViewModel.cs" />

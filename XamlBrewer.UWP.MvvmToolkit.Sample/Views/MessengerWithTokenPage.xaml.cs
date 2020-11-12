@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Messaging;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,7 +10,6 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
 {
     public sealed partial class MessengerWithTokenPage : Page
     {
-
         public MessengerWithTokenPage()
         {
             this.InitializeComponent();
@@ -29,8 +28,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         private void PillowButton_Click(object sender, RoutedEventArgs e)
         {
             ClearReactions();
-            // App.ServiceProvider.GetService<IMessenger>().Send<CasualtyMessage, string>(new CasualtyMessage(), "pillow");
-            App.ServiceProvider.GetService<IMessenger>().Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Pillow);
+            // Ioc.Default.GetService<IMessenger>().Send<CasualtyMessage, string>(new CasualtyMessage(), "pillow");
+            Ioc.Default.GetService<IMessenger>().Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Pillow);
         }
 
         private void BlanketModule_Loaded(object sender, RoutedEventArgs e)
@@ -46,9 +45,9 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         private void BlanketButton_Click(object sender, RoutedEventArgs e)
         {
             ClearReactions();
-            // App.ServiceProvider.GetService<IMessenger>().Send<CasualtyMessage>();
-            // App.ServiceProvider.GetService<IMessenger>().Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
-            App.ServiceProvider.GetService<IMessenger>().Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Blanket);
+            // Ioc.Default.GetService<IMessenger>().Send<CasualtyMessage>();
+            // Ioc.Default.GetService<IMessenger>().Send<CasualtyMessage, string>(new CasualtyMessage(), "blanket");
+            Ioc.Default.GetService<IMessenger>().Send<CasualtyMessage, Party>(new CasualtyMessage(), Party.Blanket);
         }
 
         private void CameraModule_Loaded(object sender, RoutedEventArgs e)

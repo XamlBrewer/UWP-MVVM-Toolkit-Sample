@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using XamlBrewer.UWP.MvvmToolkit.Sample.ViewModels;
@@ -13,7 +13,7 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Views
         {
             this.InitializeComponent();
 
-            _colorModuleViewModel = App.ServiceProvider.GetService<ColorModuleViewModel>();
+            _colorModuleViewModel = Ioc.Default.GetService<ColorModuleViewModel>();
             ColorModule.DataContext = _colorModuleViewModel;
         }
 
