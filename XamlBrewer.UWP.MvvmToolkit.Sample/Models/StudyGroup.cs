@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -15,6 +16,8 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
         public StudyGroup()
         {
             this.ErrorsChanged += StudyGroup_ErrorsChanged;
+
+            this.PropertyChanged += StudyGroup_PropertyChanged;
 
             // Validate current state.
             SetProperty(ref _topic, _topic, true, nameof(Topic));
@@ -50,10 +53,12 @@ namespace XamlBrewer.UWP.MvvmToolkit.Sample.Models
 
         public string Errors => string.Join(Environment.NewLine, from ValidationResult e in GetErrors(null) select e.ErrorMessage);
 
-        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void StudyGroup_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            base.OnPropertyChanged(propertyName);
-            base.OnPropertyChanged(nameof(HasErrors)); // Update HasErrors on every change, so I can bind to it.
+            if (e.PropertyName != nameof(HasErrors))
+            {
+                OnPropertyChanged(nameof(HasErrors)); // Update HasErrors on every change, so I can bind to it.
+            }
         }
 
         private void StudyGroup_ErrorsChanged(object sender, System.ComponentModel.DataErrorsChangedEventArgs e)
