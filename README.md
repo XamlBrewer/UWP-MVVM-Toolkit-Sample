@@ -10,6 +10,8 @@ Demonstrates using the Windows Community MVVM Toolkit in a UWP app.
 * Messenger with Token
 * Ioc integration
 
+<a href="https://www.buymeacoffee.com/xamlbrewer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 Screenshots (background image [Designed by starline / Freepik](http://www.freepik.com)):
 
 ![Screenshot](Assets/BuildingblocksPage.png?raw=true)
